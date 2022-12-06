@@ -124,6 +124,7 @@ a {
   box-shadow: none !important;
   background: var(--bg-color);
   border: 1px solid var(--primary-color);
+  color: var(--highlight-color);
 }
 
 .form-control:focus {
@@ -191,11 +192,11 @@ a {
 }
 
 /* PRODUCTS SECTION */
-.products h2 {
+h2 {
   font-size: 72px;
 }
 
-.laptops h3 {
+h3 {
   font-size: 36px;
 }
 
@@ -251,6 +252,10 @@ a {
 
 /* footer */
 
+.dark {
+  background-color: var(--dark-color);
+}
+
 .icon-def {
   color: var(--primary-color);
 }
@@ -262,4 +267,12 @@ a {
 .item:hover {
   color: var(--primary-color) !important;
   transition: 0.3s;
+}
+
+.invisibleInput {
+  display: none;
+}
+
+.hide {
+  display: none;
 }

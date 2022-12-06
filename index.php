@@ -26,7 +26,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
 
   <body>
@@ -158,7 +158,7 @@
           <div class="row pt-5 pb-3 w-100 cards-container">
             <h3>Laptops</h3>
                 <?php
-                  $selectLaptopsSql = "SELECT * FROM products WHERE category='laptop' ORDER BY price DESC LIMIT 4";
+                  $selectLaptopsSql = "SELECT * FROM products WHERE category='laptops' ORDER BY price DESC LIMIT 4";
                   $laptops = $conn -> query($selectLaptopsSql);
 
                   while($row = $laptops->fetch_assoc()) {
@@ -177,7 +177,10 @@
                 ?>
           </div> 
           <div class="btn-container">
-            <button class="btn btn-primary view-more mb-5">View more...</button>
+            <form action="./backend/category.php" method='post'>
+              <input type="text" name="category" class="invisibleInput" value='Laptops'>
+              <input type='submit' class="btn btn-primary view-more mb-5" value='View more...'></input>
+            </form>
           </div>
         </div>
 
@@ -185,7 +188,7 @@
           <div class="row pt-5 pb-3 w-100 cards-container">
             <h3>Smartphones</h3>
               <?php
-                $selectSmartphonesSql = "SELECT * FROM products WHERE category='smartphone' ORDER BY price DESC LIMIT 4";
+                $selectSmartphonesSql = "SELECT * FROM products WHERE category='smartphones' ORDER BY price DESC LIMIT 4";
                 $smartphones = $conn -> query($selectSmartphonesSql);
 
                 while($row = $smartphones->fetch_assoc()) {
@@ -203,9 +206,10 @@
                 }
               ?>
             <div class="btn-container mt-3">
-              <button class="btn btn-primary view-more mb-5">
-                View more...
-              </button>
+            <form action="./backend/category.php" method='post'>
+              <input type="text" name="category" class="invisibleInput" value='Smartphones'>
+              <input type='submit' class="btn btn-primary view-more mb-5" value='View more...'></input>
+            </form>
             </div>
           </div>
         </div>
@@ -232,9 +236,10 @@
                   }
               ?>
             <div class="btn-container mt-3">
-              <button class="btn btn-primary view-more mb-5">
-                View more...
-              </button>
+            <form action="./backend/category.php" method='post'>
+              <input type="text" name="category" class="invisibleInput" value='Headphones'>
+              <input type='submit' class="btn btn-primary view-more mb-5" value='View more...'></input>
+            </form>
             </div>
           </div>
         </div>
@@ -261,9 +266,10 @@
                   }
               ?>
             <div class="btn-container mt-3">
-              <button class="btn btn-primary view-more mb-5">
-                View more...
-              </button>
+            <form action="./backend/category.php" method='post'>
+              <input type="text" name="category" class="invisibleInput" value='Accessories'>
+              <input type='submit' class="btn btn-primary view-more mb-5" value='View more...'></input>
+            </form>
             </div>
           </div>
         </div>
@@ -354,14 +360,12 @@
 
       <!-- Copyright -->
       <div
-        class="text-center p-4"
-        style="background-color: rgba(0, 0, 0, 0.05)"
+        class="text-center p-4 dark"
       >
         © 2022 Copyright:
         <a class="text-reset fw-bold">Dawid Chrobak</a>
       </div>
       <!-- Copyright -->
     </footer>
-    <!-- Footer -->
   </body>
 </html>
