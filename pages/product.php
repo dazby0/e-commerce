@@ -114,7 +114,7 @@
 
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase" href="#">
+                <a class="nav-link mx-2 text-uppercase" href="./cart.php">
                   <i class="fa-solid fa-cart-shopping me-1"></i> 
                   Cart
                   <div class="info">
@@ -131,6 +131,7 @@
           <div class="img-container col-lg-5 product-section">
             <?php
               $itemName = $_SESSION['productName'];
+              
               $selectImgSourceSql = "SELECT img_source FROM products WHERE title='".$itemName."'";
               $selectSource = $conn -> query($selectImgSourceSql);
 
@@ -141,7 +142,7 @@
           </div>
           <div class="desc-container col-lg-7">
             <!-- dynamic title, desc, price, +/- buttons, add to cart -->
-            <h2><?php echo $itemName ?></h2>
+            <h2 class="item-name"><?php echo $itemName ?></h2>
             <p class="pt-5"> 
               <?php 
                 $selectDescSql = "SELECT description FROM products WHERE title='".$itemName."'";
@@ -169,14 +170,12 @@
                 <input class="form-control number-input" type="number" disabled />
                 <button class="btn btn-primary increment">+</button>
               </div>
-              <form action="../backend/addToCart.php" method="post">
-                <input type="text" name="price" class="priceInput invisibleInput" value="" />
-                <input type="text" name="imgSrc" class="imgSrcInput invisibleInput" value="" />
+                <!-- <input type="text" name="price" class="priceInput invisibleInput" value="" /> -->
+                <!-- <input type="text" name="imgSrc" class="imgSrcInput invisibleInput" value="" /> -->
                 <button class="btn btn-primary add-cart">
                   <i class="fa-solid fa-cart-shopping logo pr-3"></i>
                   Add to cart
                 </button>
-              </form>
             </div>
           </div>
         </div>

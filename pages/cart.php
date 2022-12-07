@@ -1,3 +1,8 @@
+<?php
+  require('../backend/config.php');
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +29,7 @@
     <link rel="stylesheet" href="../styles/main.css" />
 </head>
 
-<body>
+<body id="body">
     <div class="superNav border-bottom py-2">
         <div class="container">
           <div class="row">
@@ -125,7 +130,12 @@
     <div class="container">
         <h2 class="text-center">Cart</h2>
         <h3 class="text-center">Your items: <span class="allItems"></span></h3>
-    </div>
+
+        <p class="name"></p>
+        <p class="price"></p>
+        <p class="src"></p>
+        <p class="cookie-show"></p>
+     </div>
    </main>
 
     <footer class="text-center text-lg-start border-top">

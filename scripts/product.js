@@ -4,11 +4,12 @@ const quantityInput = document.querySelector(".number-input");
 const addToCartBtn = document.querySelector(".add-cart");
 const cartInfo = document.querySelector(".info");
 
+const itemName = document.querySelector(".item-name").innerHTML;
 const imgSrcInfo = document.querySelector(".img-src").src;
 const priceInfo = document.querySelector(".price");
 
-const imgSrcInput = document.querySelector(".imgSrcInput");
-const priceInput = document.querySelector(".priceInput");
+// const imgSrcInput = document.querySelector(".imgSrcInput");
+// const priceInput = document.querySelector(".priceInput");
 
 btnIncrement.addEventListener("click", () => {
   quantityInput.value++;
@@ -37,7 +38,13 @@ addToCartBtn.addEventListener("click", () => {
   sessionStorage.setItem("quantity", (quantity += value));
   refreshItems();
 
-  imgSrcInput.value = imgSrcInfo;
+  // imgSrcInput.value = imgSrcInfo;
   const correctPrice = priceInfo.innerText.split(" ");
-  priceInput.value = correctPrice[0];
+  // priceInput.value = correctPrice[0];
+
+  const date = new Date();
+
+  document.cookie = `${itemName}=${
+    correctPrice[0]
+  } ${imgSrcInfo}; expires=${date.setTime(date.getTime() + 5)}; path=/`;
 });
