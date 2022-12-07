@@ -157,7 +157,10 @@
                   echo "<h5 class='title'>".$row['title']."</h5>";
                   echo '<p class="card-text">'.$row['description'].'</p>';
                   echo '<p class="price">'.$row['price'].'$</p>';
-                  echo '<button class="btn btn-primary">Show details</button>';
+                  echo '<form action="../backend/selectedProduct.php" method="post">';
+                    echo "<input type='text' class='invisibleInput' name='titleItem' value='".$row['title']."' />";
+                    echo '<button class="btn btn-primary">Show details</button>';
+                  echo '</form>';
                 echo '</div>';
               echo '</div>';
             echo '</div>';

@@ -52,6 +52,7 @@
 /* NAVBAR */
 .logo {
   color: var(--highlight-color);
+  background: transparent;
 }
 
 a {
@@ -206,6 +207,11 @@ h3 {
   justify-content: center;
 }
 
+.card-item {
+  display: flex;
+  justify-content: center;
+}
+
 .card {
   width: 300px;
   height: fit-content;
@@ -277,6 +283,46 @@ h3 {
   display: none;
 }
 
+.product-section {
+  height: fit-content;
+  position: relative;
+  top: 20%;
+}
+
 .product {
   height: calc(100vh - 110px);
+}
+
+.img-item {
+  width: fit-content;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.buy {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quantity {
+  display: flex;
+}
+
+.form-control:disabled {
+  width: 100px;
+  background: var(--bg-color);
+  color: var(--highlight-color);
+}
+
+.info {
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  color: var(--highlight-color);
+  position: relative;
+  top: -30px;
+  left: 65px;
+  border-radius: 5px;
+  display: none;
+  text-align: center;
 }

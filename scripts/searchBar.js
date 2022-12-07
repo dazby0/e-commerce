@@ -6,7 +6,7 @@ const titles = document.querySelectorAll(".title");
 
 const cards = document.querySelectorAll(".card-item");
 
-btn.addEventListener("input", () => {
+btn.addEventListener("click", () => {
   const word = searchInput.value.toLowerCase();
 
   titles.forEach((el) => {
@@ -23,10 +23,10 @@ btn.addEventListener("input", () => {
   });
 });
 
-// searchInput.addEventListener("input", () => {
-//   if (searchInput.value === "") {
-//     cards.forEach((card) => {
-//       card.classList.remove("hide");
-//     });
-//   }
-// });
+searchInput.addEventListener("input", () => {
+  if (searchInput.value === "") {
+    cards.forEach((card) => {
+      card.classList.remove("hide");
+    });
+  }
+});

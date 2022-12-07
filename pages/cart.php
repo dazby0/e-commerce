@@ -1,15 +1,10 @@
-<?php
-  require('../backend/config.php');
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo $_SESSION['productName'] ?></title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -27,11 +22,10 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="../styles/main.css" />
-  </head>
-  
-  <body>
-    <div class="st-view">
-      <div class="superNav border-bottom py-2">
+</head>
+
+<body>
+    <div class="superNav border-bottom py-2">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
@@ -59,8 +53,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <nav class="navbar navbar-expand-lg sticky-top p-3 shadow-sm">
+    </div>
+    <nav class="navbar navbar-expand-lg sticky-top p-3 shadow-sm">
         <div class="container">
           <a class="navbar-brand" href="../index.php"
             ><i class="fa-solid fa-shop me-2 logo"></i>
@@ -125,63 +119,14 @@
             </ul>
           </div>
         </div>
-      </nav>
-      <div class="container product">
-        <div class="row w-100 pt-5 h-100">
-          <div class="img-container col-lg-5 product-section">
-            <?php
-              $itemName = $_SESSION['productName'];
-              $selectImgSourceSql = "SELECT img_source FROM products WHERE title='".$itemName."'";
-              $selectSource = $conn -> query($selectImgSourceSql);
+    </nav>
 
-              while($row = $selectSource->fetch_assoc()) {
-                echo "<img class='img-item img-src' src='".$row['img_source']."' alt='".$itemName."' />";
-              }
-            ?>
-          </div>
-          <div class="desc-container col-lg-7">
-            <!-- dynamic title, desc, price, +/- buttons, add to cart -->
-            <h2><?php echo $itemName ?></h2>
-            <p class="pt-5"> 
-              <?php 
-                $selectDescSql = "SELECT description FROM products WHERE title='".$itemName."'";
-                $selectDesc = $conn -> query($selectDescSql);
-  
-                while($row = $selectDesc->fetch_assoc()) {
-                  echo $row['description'];
-                }
-              ?>
-            </p>
-            <h3 class="pt-3 price">
-                <?php
-                  $selectPriceSql = "SELECT price FROM products WHERE title='".$itemName."'";
-                  $selectPrice = $conn -> query($selectPriceSql);
-
-                  while($row = $selectPrice->fetch_assoc()) {
-                    echo $row['price'];
-                  }
-                ?>
-                $
-            </h3>
-            <div class="buy">
-              <div class="quantity">
-                <button class="btn btn-primary decrement" disabled>-</button>
-                <input class="form-control number-input" type="number" disabled />
-                <button class="btn btn-primary increment">+</button>
-              </div>
-              <form action="../backend/addToCart.php" method="post">
-                <input type="text" name="price" class="priceInput invisibleInput" value="" />
-                <input type="text" name="imgSrc" class="imgSrcInput invisibleInput" value="" />
-                <button class="btn btn-primary add-cart">
-                  <i class="fa-solid fa-cart-shopping logo pr-3"></i>
-                  Add to cart
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+   <main class="pt-3 pb-3">
+    <div class="container">
+        <h2 class="text-center">Cart</h2>
+        <h3 class="text-center">Your items: <span class="allItems"></span></h3>
     </div>
+   </main>
 
     <footer class="text-center text-lg-start border-top">
       <section
@@ -269,6 +214,6 @@
       </div>
     </footer>
 
-    <script src="../scripts/product.js" defer></script>
-  </body>
+    <script src="../scripts/cart.js"></script>
+</body>
 </html>
