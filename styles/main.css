@@ -276,3 +276,7 @@ h3 {
 .hide {
   display: none;
 }
+
+.product {
+  height: calc(100vh - 110px);
+}
