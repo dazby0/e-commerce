@@ -1,14 +1,20 @@
  <?php
- /*
     require('./config.php');
     session_start();
 
-    // $_SESSION['price'] = $_POST['price'];
-    // $_SESSION['imgSrc'] = $_POST['imgSrc'];
-    // echo $_SESSION['productName'];
+    $details = $_POST['itemDetails'];
+    $names = $_POST['itemName'];
 
-    $productName = $_SESSION['productName'];
-    echo $productName;
+    $detailsArray = explode(" ", $details);
+    $_SESSION['details'] = $detailsArray;
+   // print_r($_SESSION['details']);
+   //  foreach($detailsArray as $detail) {
+   //    echo $detail;
+   //    echo '<br/>';
+   //  }
 
-    setcookie("item", $_POST['price'] . $_POST['imgSrc'], time() + 900, "/");
-    echo $_COOKIE['item'];
+    $namesArray = explode("//", $names);
+    $_SESSION['names'] = $namesArray;
+   //  print_r($_SESSION['names']);
+
+   header('Location: ../pages/cart.php');

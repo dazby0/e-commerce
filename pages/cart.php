@@ -131,10 +131,10 @@
         <h2 class="text-center">Cart</h2>
         <h3 class="text-center">Your items: <span class="allItems"></span></h3>
 
-        <p class="name"></p>
-        <p class="price"></p>
-        <p class="src"></p>
-        <p class="cookie-show"></p>
+        <p class="cookie-show">
+          <!-- jakos petla przejsc po tym wszystkim a detaile +=2 zeby przeskakiwalo -->
+          <!-- pozniej cene przemnozyc przez ilosc zapisana w sesji (co trzeba tez zrobic) -->
+        </p>
      </div>
    </main>
 

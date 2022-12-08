@@ -170,12 +170,12 @@
                 <input class="form-control number-input" type="number" disabled />
                 <button class="btn btn-primary increment">+</button>
               </div>
-                <!-- <input type="text" name="price" class="priceInput invisibleInput" value="" /> -->
-                <!-- <input type="text" name="imgSrc" class="imgSrcInput invisibleInput" value="" /> -->
-                <button class="btn btn-primary add-cart">
-                  <i class="fa-solid fa-cart-shopping logo pr-3"></i>
-                  Add to cart
-                </button>
+                <form action="../backend/addToCart.php" method="post" id="addForm">
+                  <button type="submit" class="btn btn-primary add-cart" id="submitBtn">
+                    <i class="fa-solid fa-cart-shopping logo pr-3"></i>
+                    Add to cart
+                  </button>
+                </form>
             </div>
           </div>
         </div>
@@ -268,6 +268,7 @@
       </div>
     </footer>
 
-    <script src="../scripts/product.js" defer></script>
+    <script src="../scripts/product.js"></script>
+    <script src="../scripts/addToCart.js"></script>
   </body>
 </html>
