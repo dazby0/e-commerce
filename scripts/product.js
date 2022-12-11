@@ -6,10 +6,14 @@ const cartInfo = document.querySelector(".info");
 
 const itemName = document.querySelector(".item-name").innerHTML;
 const imgSrcInfo = document.querySelector(".img-src").src;
-const priceInfo = document.querySelector(".price");
+const priceInfo = parseInt(
+  document.querySelector(".price-numbers").innerHTML.trim()
+);
 
-// const imgSrcInput = document.querySelector(".imgSrcInput");
-// const priceInput = document.querySelector(".priceInput");
+const imgSrcInput = document.querySelector(".imgSrcInput");
+const priceInput = document.querySelector(".priceInput");
+const titleInput = document.querySelector(".titleInput");
+const quantityInputLast = document.querySelector(".quantityInput");
 
 btnIncrement.addEventListener("click", () => {
   quantityInput.value++;
@@ -23,7 +27,10 @@ btnDecrement.addEventListener("click", () => {
     : (btnDecrement.disabled = false);
 });
 
-let quantity = sessionStorage.getItem("quantity");
+localStorage.setItem("quantityStorage", 0);
+
+let quantity = parseInt(localStorage.getItem("quantityStorage"));
+console.log(quantity);
 refreshItems();
 
 function refreshItems() {
@@ -35,16 +42,16 @@ function refreshItems() {
 
 addToCartBtn.addEventListener("click", () => {
   let value = quantityInput.valueAsNumber;
-  sessionStorage.setItem("quantity", (quantity += value));
+
+  titleInput.value = itemName;
+  priceInput.value = priceInfo;
+  imgSrcInput.value = imgSrcInfo;
+  quantityInputLast.value = value;
+
+  localStorage.setItem(
+    "quantityStorage",
+    (quantity += parseInt(quantityInputLast.value))
+  );
+  console.log(localStorage.getItem("quantityStorage"));
   refreshItems();
-
-  // imgSrcInput.value = imgSrcInfo;
-  const correctPrice = priceInfo.innerText.split(" ");
-  // priceInput.value = correctPrice[0];
-
-  const date = new Date();
-
-  document.cookie = `${itemName}=${
-    correctPrice[0]
-  } ${imgSrcInfo}; expires=${date.setTime(date.getTime() + 5)}; path=/`;
 });

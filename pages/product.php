@@ -126,8 +126,9 @@
           </div>
         </div>
       </nav>
-      <div class="container product">
-        <div class="row w-100 pt-5 h-100">
+
+      <div class="container">
+        <div class="row w-100 pt-5 item-desc">
           <div class="img-container col-lg-5 product-section">
             <?php
               $itemName = $_SESSION['productName'];
@@ -154,6 +155,7 @@
               ?>
             </p>
             <h3 class="pt-3 price">
+              <span class="price-numbers">
                 <?php
                   $selectPriceSql = "SELECT price FROM products WHERE title='".$itemName."'";
                   $selectPrice = $conn -> query($selectPriceSql);
@@ -162,15 +164,20 @@
                     echo $row['price'];
                   }
                 ?>
+              </span>
                 $
             </h3>
-            <div class="buy">
+            <div class="buy mb-5">
               <div class="quantity">
                 <button class="btn btn-primary decrement" disabled>-</button>
                 <input class="form-control number-input" type="number" disabled />
                 <button class="btn btn-primary increment">+</button>
               </div>
                 <form action="../backend/addToCart.php" method="post" id="addForm">
+                  <input type="text" class="titleInput invisibleInput" name="title">
+                  <input type="number" class="priceInput invisibleInput" name="price">
+                  <input type="text" class="imgSrcInput invisibleInput" name="source">
+                  <input type="number" class="quantityInput invisibleInput" name="quantity">
                   <button type="submit" class="btn btn-primary add-cart" id="submitBtn">
                     <i class="fa-solid fa-cart-shopping logo pr-3"></i>
                     Add to cart
@@ -269,6 +276,5 @@
     </footer>
 
     <script src="../scripts/product.js"></script>
-    <script src="../scripts/addToCart.js"></script>
   </body>
 </html>

@@ -326,3 +326,13 @@ h3 {
   display: none;
   text-align: center;
 }
+
+.detail {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.card-sum {
+  display: flex;
+  justify-content: center;
+}

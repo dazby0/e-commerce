@@ -129,12 +129,37 @@
    <main class="pt-3 pb-3">
     <div class="container">
         <h2 class="text-center">Cart</h2>
-        <h3 class="text-center">Your items: <span class="allItems"></span></h3>
+        <h3 class="text-center">Your items: <span class="detail quan">
+          <?php
+            $quantity = $_SESSION['quantity'];
+            echo $quantity;
+          ?>
+        </span></h3>
 
-        <p class="cookie-show">
-          <!-- jakos petla przejsc po tym wszystkim a detaile +=2 zeby przeskakiwalo -->
-          <!-- pozniej cene przemnozyc przez ilosc zapisana w sesji (co trzeba tez zrobic) -->
-        </p>
+        <div class="card-sum mt-5 mb-5">
+          <?php
+            $title = $_SESSION['title'];
+            $price = $_SESSION['price'];  
+            $source = $_SESSION['source'];
+
+            $selectItemDetailsSql = "SELECT title, price, img_source FROM products WHERE title='".$title."'";
+            $selectItemDetails = $conn->query($selectItemDetailsSql);
+
+            while ($row = $selectItemDetails->fetch_assoc()) {
+              echo '<div class="card">';
+                echo '<img class="card-img-top" src='.$row['img_source'].' alt="Card image cap" />';
+                echo '<div class="card-body">';
+                  echo "<h5>".$row['title']."</h5>";
+                  echo '<p class="price">'.$row['price'].'$</p>';
+                echo '</div>';
+              echo '</div>';
+            }
+          ?>
+        </div>
+
+        <div class="total-price">
+          <h3 class="text-center">Total cost: <span class="detail total"></span></h3>
+        </div>
      </div>
    </main>
 
@@ -224,6 +249,6 @@
       </div>
     </footer>
 
-    <script src="../scripts/cart.js"></script>
+    <script src="../scripts/calcCost.js" defer></script>
 </body>
 </html>
