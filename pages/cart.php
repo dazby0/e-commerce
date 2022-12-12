@@ -129,7 +129,8 @@
    <main class="pt-3 pb-3">
     <div class="container">
         <h2 class="text-center">Cart</h2>
-        <h3 class="text-center">Your items: <span class="detail quan">
+        <h3 class="text-center invisibleInput" id="empty">Your cart is empty!</h3>
+        <h3 class="text-center cart">Your items: <span class="detail quan">
           <?php
             $quantity = $_SESSION['quantity'];
             echo $quantity;
@@ -159,6 +160,11 @@
 
         <div class="total-price">
           <h3 class="text-center">Total cost: <span class="detail total"></span></h3>
+        </div>
+
+        <div class="buttons text-center mb-5 mt-3">
+          <button class="btn-danger remove">Remove items</button>
+          <button class="btn-success buy-btn">Buy now</button>
         </div>
      </div>
    </main>
@@ -250,5 +256,6 @@
     </footer>
 
     <script src="../scripts/calcCost.js" defer></script>
+    <script src="../scripts/remove.js" defer></script>
 </body>
 </html>
