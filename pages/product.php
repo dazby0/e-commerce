@@ -178,7 +178,7 @@
                   <input type="number" class="priceInput invisibleInput" name="price">
                   <input type="text" class="imgSrcInput invisibleInput" name="source">
                   <input type="number" class="quantityInput invisibleInput" name="quantity">
-                  <button type="submit" class="btn btn-primary add-cart" id="submitBtn">
+                  <button type="submit" class="btn btn-primary add-cart" id="submitBtn" disabled>
                     <i class="fa-solid fa-cart-shopping logo pr-3"></i>
                     Add to cart
                   </button>

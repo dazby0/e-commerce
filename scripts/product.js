@@ -18,6 +18,7 @@ const quantityInputLast = document.querySelector(".quantityInput");
 btnIncrement.addEventListener("click", () => {
   quantityInput.value++;
   btnDecrement.disabled = false;
+  addToCartBtn.disabled = false;
 });
 
 btnDecrement.addEventListener("click", () => {
@@ -37,7 +38,9 @@ function refreshItems() {
   if (quantity > 0) {
     cartInfo.style.display = "block";
     cartInfo.innerHTML = quantity;
-  } else cartInfo.style.display = "none";
+  } else {
+    cartInfo.style.display = "none";
+  }
 }
 
 addToCartBtn.addEventListener("click", () => {
