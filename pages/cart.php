@@ -132,13 +132,17 @@
         <h3 class="text-center invisibleInput" id="empty">Your cart is empty!</h3>
         <h3 class="text-center cart">Your items: <span class="detail quan">
           <?php
+          if(isset($_SESSION['quantity'])){
             $quantity = $_SESSION['quantity'];
             echo $quantity;
+          }
+          else echo '0';
           ?>
         </span></h3>
 
         <div class="card-sum mt-5 mb-5">
           <?php
+          if(isset($_SESSION['quantity'])) {
             $title = $_SESSION['title'];
             $price = $_SESSION['price'];  
             $source = $_SESSION['source'];
@@ -155,11 +159,13 @@
                 echo '</div>';
               echo '</div>';
             }
+          }
+          else echo '';
           ?>
         </div>
 
         <div class="total-price">
-          <h3 class="text-center">Total cost: <span class="detail total"></span></h3>
+          <h3 class="text-center">Total cost: <span class="detail total">0</span></h3>
         </div>
 
         <div class="buttons text-center mb-5 mt-3">

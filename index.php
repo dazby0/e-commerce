@@ -136,7 +136,7 @@
 
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase" href="#"
+                <a class="nav-link mx-2 text-uppercase" href="./pages/cart.php"
                   ><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a
                 >
               </li>
