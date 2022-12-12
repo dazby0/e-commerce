@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   require('./backend/config.php');
 ?>
 
@@ -373,7 +374,8 @@
       <!-- Copyright -->
       <div
         class="text-center p-4 dark"
-      >
+        >
+        <a class="text-reset fw-bold" href="./admin/login.html">Admin Panel</a>
         © 2022 Copyright:
         <a class="text-reset fw-bold">Dawid Chrobak</a>
       </div>
